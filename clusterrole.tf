@@ -1,4 +1,6 @@
 resource "kubernetes_cluster_role" "datadog_agent" {
+  count = "${var.dd_enable}"
+
   metadata {
     name = "datadog-agent"
   }
@@ -39,4 +41,3 @@ resource "kubernetes_cluster_role" "datadog_agent" {
     resources  = ["nodes/metrics", "nodes/spec", "nodes/proxy"]
   }
 }
-

@@ -1,4 +1,6 @@
 resource "kubernetes_cluster_role_binding" "datadog_agent" {
+  count = "${var.dd_enable}"
+
   metadata {
     name = "datadog-agent"
   }
@@ -15,4 +17,3 @@ resource "kubernetes_cluster_role_binding" "datadog_agent" {
     name      = "datadog-agent"
   }
 }
-
